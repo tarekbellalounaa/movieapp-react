@@ -1,52 +1,121 @@
 .App {
-  padding: 20px;
-  
-  
+
+ display: flex;
+ flex-direction: column;
 }
 
 .main4 {
   display: flex;
-  justify-content: space-between;
+  
   flex-wrap: wrap;
+  padding-left: 50px;
 }
 
 .image-bottom {
   outline: none;
   padding: 5px;
   display: flex;
-  justify-content: space-between;
+  
 }
-.main4-image {
+.main4-img:hover {
+  transform: translateY(-10px);
+  box-shadow: 8px 19px 57px -19px rgba(110, 110, 110, 0.77);
+  
+}
+.main4-img {align-content: center;
+  background-color:white;
   border-radius: 5px;
   margin: 10px;
   outline: none;
   border: 1px solid whitesmoke;
+  display: flex;
+  justify-content: center;
 }
-.main4button {
-  border-radius: 6px;
-  background-color: #1762c7;
-  color: white;
-  height: 30px;
-  width: 120px;
-  border: solid;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  cursor: pointer;
+.main4-image {align-content: center;
+  position: relative;
+  
+  background-color:black;
+  margin: 10px;
+  outline: none;
+  /* border: 1px solid black; */
+}
+#imagewidth{
+  width:10%; 
+  
+}
+
+
+.imagestyle{
+  width:224px;
+  height: 213px;
 }
 .image-name {text-align: center;
-  padding: 5px;
+
+  color:white;
   font-weight: bold;
   font-family: Arial, Helvetica, sans-serif;
   color: #747378;
+  
+  ;align-items: ce;
 }
 .main4-image:hover {transform: translateY(-10px);
+  opacity: 0.5;
   box-shadow: 8px 19px 57px -19px rgba(110, 110, 110, 0.77);
+  
+}
+.main4-image:hover .stars{
+ 
+  display: block;
+}
+.main4-image:hover .playbutt{
+  display: block;
+}
+.main4-image:hover .image-name{
+  display: block;
+}
+.main4-image:hover .year{
+  display: block;
+}
+.stars{
+  display: none;
+  position: absolute;
+  top: 2%;
+  left:2%
+}
+.year{color: white;
+  font-weight: 700;
+  display: none;
+  position: absolute;
+  top: 2%;
+  left:78%
+} 
+.playbutt{color:white;
+  display: none;
+  position: absolute;
+  top:40%;
+  left:45%;
 }
 
+.color{
+  
+  color: gold;
+}
 .footer{
   display: flex;
-padding: 20px;
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+  justify-content: center;
 }
+
+.header{
+  display: flex;
+  justify-content: space-between;
+ align-items: center;
+    width: 90%;
+  
+}
+  
 .input{
   font-family: fantasy;
   border-radius: 5px;
@@ -54,27 +123,18 @@ padding: 20px;
   padding:10px;
   display: flex;
   justify-content:center;
-  width: 80%;
+  width: 70%;
   color: black;
   font-size: 20px;
-  border-top-right-radius: 0px;
+ 
   outline: none;
-  border-bottom-right-radius: 0px;
+ 
 }
-.addbutton{
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  cursor: pointer;
-  width:30%;
-  outline: none;
-  background-color: black;
-  color: white;
-  font-family: fantasy;
-  font-weight: 100;
-  font-size: 20px;
-  border:black solid 1px;
-  padding:10px;
-  display: flex;
-  justify-content:center;
+.addbutt{
   
+  cursor: pointer;
+  
+  outline: none;
+  
+  color:green;
 }

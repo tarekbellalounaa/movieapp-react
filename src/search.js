@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import uuid from 'uuid'
+
 class Search extends Component{
     constructor(props) {
         super(props);
@@ -8,13 +9,13 @@ class Search extends Component{
         }
         
     }
-    handleChange = e => {
-        this.setState({ input: e.target.value });
-      };
-      add = e => {
-        let newmovie = { text: this.state.input, id: uuid(), complete: false };
-        this.setState({ todos: this.state.todos.concat(newmovie) , input:""});
-      };
+    // handleChange = e => {
+    //     this.setState({ input: e.target.value });
+    //   };
+    //   add = e => {
+    //     let newmovie = { text: this.state.input, id: uuid(), complete: false };
+    //     this.setState({ todos: this.state.todos.concat(newmovie) , input:""});
+    //   };
     
 
     render(){
@@ -27,14 +28,7 @@ class Search extends Component{
               name="input"
               placeholder="Search for a movie"
             />
-            <input
-              onClick={this.add}
-              className="addbutton"
-              type="button"
-              name="addition"
-              value="Search"
-            />
-          </div>
+            </div>
         )
     }
 }

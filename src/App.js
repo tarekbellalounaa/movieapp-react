@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import joker from './joker.jpg'
 import underground from './6underground.jpg'
@@ -13,61 +13,81 @@ import avengers from './avengers.jpg'
 import './App.css';
 import Moviecard from './moviecard'
 import Search from './search'
-import Addmovie from './addmovie.js'
+import AddModal from './addmodal';
+import Star from "./staring"
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tabimg : [
+      listMovies : [
         {
-          source: blade,
-          name: "Blade Runner",
-          btn: "WATCH"
+          image: blade,
+     play: <i class="fas  fa-3x fa-play"></i>,
+          
+          title: "Blade Runner",
+          year: "2019" ,
+          rating : 4
         },
       
         {
-          source: avengers ,
-          name: "Avengers",
-          btn: "WATCH"
+          image: avengers ,
+           play: <i class="fas fa-3x fa-play"></i>,
+          title: "Avengers",
+          year: "2019" ,
+          rating : 4
         },
       
         {
-          source: joker,
-          name: "Joker",
-          btn: "WATCH"
-        },
+          image: joker,
+           play: <i class="fas fa-3x fa-play"></i>,
+          title: "Joker",
+          year : "2019",
+          rating : 1       },
       
         {
-          source: underground ,
-          name: "6 Underground",
-          btn: "WATCH"
-        },
+          image: underground ,
+           play: <i class="fas fa-3x fa-play"></i>,
+          title: "6 Underground",
+          year : "2019",
+          rating : 3       },
       
         {
-          source: mission,
-          name: "Mission Impossible",
-          btn: "WATCH"
-        },
+          image: mission,
+           play: <i class="fas fa-3x fa-play"></i>,
+          title: "Mission Impossible",
+          year : "2019",
+          rating : 4       },
         {
-          source: terminator,
-          name: "The Last Terminator",
-          btn: "WATCH"
-        },
+          image: terminator,
+           play: <i class="fas fa-3x fa-play"></i>,
+          title: "The Last Terminator",
+          year : "2019",
+          rating : 4       },
         {
-          source: parasite,
-          name: "Parasite",
-          btn: "WATCH"
-        },
+          image: parasite,
+           play: <i class="fas fa-3x fa-play"></i>,
+          title: "Parasite",
+          year : "2019",
+          rating : 4       },
       
         {
-          source: badboys,
-          name: "The Explosion",
-          btn: "WATCH"
-        }
+          image: badboys,
+           play: <i class="fas fa-3x fa-play"></i>,
+          title: "The Explosion",
+          year : "2019",
+          rating : 4       }
       ],
-      keyword: ''
+      keyword: '',
+      rate:1
     }
+  }
+rate = x =>{
+  this.setState({rate:x})
+}
+
+  add = movie => {
+    this.setState({listMovies : this.state.listMovies.concat(movie)})
   }
   searchMovie = keyword => {
     this.setState({keyword: keyword})
@@ -75,8 +95,14 @@ class App extends Component {
   render(){
     return (
     <div className="App">
+    <div className="header">
+    <AddModal add={x => this.add(x)}/> 
     <Search searchMovie={x => this.searchMovie(x)}/>
-     <Moviecard tab={this.state.tabimg.filter(el => el.name.toLowerCase().includes(this.state.keyword.toLowerCase().trim()))} />
+  
+    <Star staring={star => this.rate(star)}  rating={this.state.rate}/>
+    </div>
+     <Moviecard tab={this.state.listMovies.filter(el =>el.rating>=this.state.rate && el.title.toLowerCase().includes(this.state.keyword.toLowerCase().trim()))} />
+     
     </div>
   );
     }
