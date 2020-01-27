@@ -79,8 +79,10 @@ class App extends Component {
           rating : 4       }
       ],
       keyword: '',
-      rate:1
+      rate:1,
+      isLoading : true 
     }
+    setTimeout(() => this.setState({isLoading:false}), 5000);
   }
 rate = x =>{
   this.setState({rate:x})
@@ -92,6 +94,10 @@ rate = x =>{
   searchMovie = keyword => {
     this.setState({keyword: keyword})
   }
+ 
+
+
+
   render(){
     return (
     <div className="App">
@@ -101,7 +107,7 @@ rate = x =>{
   
     <Star staring={star => this.rate(star)}  rating={this.state.rate}/>
     </div>
-     <Moviecard tab={this.state.listMovies.filter(el =>el.rating>=this.state.rate && el.title.toLowerCase().includes(this.state.keyword.toLowerCase().trim()))} />
+     <Moviecard isLoading={this.state.isLoading} tab={this.state.listMovies.filter(el =>el.rating>=this.state.rate && el.title.toLowerCase().includes(this.state.keyword.toLowerCase().trim()))} />
      
     </div>
   );

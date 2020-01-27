@@ -1,7 +1,7 @@
 import React from 'react'
 import Addmodal from './addmodal.js'
 import Star from './staring'
-
+import HOC from './hoc'
 function Moviecard(props){
     return(
         <div className="main4" >
@@ -20,4 +20,4 @@ function Moviecard(props){
 
     
 }
-export default Moviecard;
+export default HOC(Moviecard);
